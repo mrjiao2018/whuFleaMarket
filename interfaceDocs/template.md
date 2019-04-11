@@ -1,5 +1,3 @@
-[TOC]
-
 # 接口模板
 所有接口的定义请严格遵守此模板，以下为一个具体的接口示例：
 
@@ -89,12 +87,12 @@
 
 ### 买卖下单
 **url：**
-`POST: /whufleamarket/deals/commit`  
+`POST: /whufleamarket/deals/<String:dealID>/commit`  
 **parameters：**
 ```
 {
+    "dealID": "23",
 	"userID": "11",
-	"dealID": "23",
 	"consignee": {
 		"phone": "15287876661",
 		"name": "李四",
@@ -107,7 +105,7 @@
 {
         "error_code": 0,
         "msg": "ok",
-        "request": "POST /whufleamarket/deals/commit"
+        "request": "/whufleamarket/deals/<String:dealID>/commit"
 }
 ```
 **response_description：**
