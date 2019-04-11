@@ -91,12 +91,12 @@
 **parameters：**
 ```
 {
-    "dealID": "23",
-	"userID": "11",
+    	"dealID": "23",
+   	"userID": "11",
 	"consignee": {
 		"phone": "15287876661",
-		"name": "李四",
-		"address": "C7宿舍代理点"
+	    	"name": "李四",
+	    	"address": "C7宿舍代理点"
 	}
 }
 ```
