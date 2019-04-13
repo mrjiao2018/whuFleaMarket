@@ -22,8 +22,11 @@
 }
 ```
 **response_description：**
-- categoryId：商品种类id
-- categoryName：商品名称
+- error_code：错误码，0代表正常
+- msg：返回信息
+- categories：商品种类
+  - categoryId：商品种类id
+  - categoryName：商品名称
 
 ### 发布二手商品
 **url：**
