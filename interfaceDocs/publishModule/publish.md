@@ -6,16 +6,20 @@
 
 **response：** `200`
 ```
-[
-        {
+{
+    "error_code": 0,
+    "msg": "ok",
+    "categories": [
+            {
 		"categoryId": "1",
 		"categoryName": "运动器材"
-	},
-	{
+	    },
+	    {
 		"categoryId": "2",
 		"categoryName": "化妆品"
-	}
-]
+	    }
+    ]
+}
 ```
 **response_description：**
 - categoryId：商品种类id
