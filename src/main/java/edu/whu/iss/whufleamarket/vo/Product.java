@@ -13,10 +13,14 @@ public class Product {
     private String productAddr;
     private List<String> productImgs;
     private ProductCategory productCategory;
+    private String newDegree;   //商品新旧程度
     private String price;
     private PersonInfo owner;
     private Date createTime;
     private Date lastEditTime;
+    //todo 完善共享商品和求购商品的相关属性，并完善对应的 product.sql
+    private boolean share;      //是否是共享商品
+    private boolean purchase;   //是否是用户求购商品
 
     public Long getProductId() {
         return productId;
@@ -96,5 +100,13 @@ public class Product {
 
     public void setLastEditTime(Date lastEditTime) {
         this.lastEditTime = lastEditTime;
+    }
+
+    public String getNewDegree() {
+        return newDegree;
+    }
+
+    public void setNewDegree(String newDegree) {
+        this.newDegree = newDegree;
     }
 }
