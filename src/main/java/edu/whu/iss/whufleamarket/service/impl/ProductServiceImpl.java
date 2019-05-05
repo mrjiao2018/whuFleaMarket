@@ -12,7 +12,7 @@ import java.io.InputStream;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-    @Autowired
+//    @Autowired
     private ProductDao productDao;
 
     /**
