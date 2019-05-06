@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 @RunWith(SpringRunner.class)
+@MapperScan(value = "edu.whu.iss.whufleamarket.mapper")
 @SpringBootTest
 public class WhufleamarketApplicationTests {
 
@@ -19,15 +20,11 @@ public class WhufleamarketApplicationTests {
 	DataSource dataSource;
 
 	@Test
-	public void contextLoads() {
-		try {
-			System.out.println("test dataSource.class:"+dataSource.getClass());
-			Connection connection = dataSource.getConnection();
-			System.out.println(connection);
-			connection.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public void contextLoads() throws Exception {
+		System.out.println("test dataSource.class:"+dataSource.getClass());
+		Connection connection = dataSource.getConnection();
+		System.out.println(connection);
+		connection.close();
 	}
 
 }

@@ -12,7 +12,7 @@ public class PersonInfoMapperTest extends WhufleamarketApplicationTests {
     @Test
     public void insertPersonInfo() {
         PersonInfo user = new PersonInfo();
-        user.setName("xiaoming2");
+        user.setName("xiaoming4");
         user.setOpenId("testOpenId");
         personInfoMapper.insertPersonInfo(user);
     }
