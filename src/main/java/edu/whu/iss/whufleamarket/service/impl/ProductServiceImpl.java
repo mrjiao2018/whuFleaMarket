@@ -1,10 +1,9 @@
 package edu.whu.iss.whufleamarket.service.impl;
 
-import edu.whu.iss.whufleamarket.dao.ProductDao;
+import edu.whu.iss.whufleamarket.mapper.ProductMapper;
 import edu.whu.iss.whufleamarket.dto.ProductExecution;
 import edu.whu.iss.whufleamarket.service.ProductService;
 import edu.whu.iss.whufleamarket.vo.Product;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +12,7 @@ import java.io.InputStream;
 @Service
 public class ProductServiceImpl implements ProductService {
 //    @Autowired
-    private ProductDao productDao;
+    private ProductMapper productMapper;
 
     /**
      * 添加二手商品

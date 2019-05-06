@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `tb_person_info` (
   `user_id` int(100) NOT NULL AUTO_INCREMENT,
-  `open_id` INT(100) NOT NULL,
+  `open_id` VARCHAR(100) NOT NULL,
   `name` varchar(32) DEFAULT NULL,
   `nickname` varchar(32) DEFAULT NULL,
   `university` VARCHAR(32) DEFAULT NULL,
