@@ -5,6 +5,7 @@ import edu.whu.iss.whufleamarket.vo.Product;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
+import java.util.List;
 
 public interface ProductService {
     /**
@@ -15,4 +16,12 @@ public interface ProductService {
      * @return
      */
     ProductExecution addProduct(Product product, InputStream[] inputStreams, String[] fileNames);
+
+    /**
+     * 根据类别获取当前所有买卖
+     *
+     * @param productCategoryId
+     * @return
+     */
+    List<Product> getAllProducts(Long productCategoryId);
 }

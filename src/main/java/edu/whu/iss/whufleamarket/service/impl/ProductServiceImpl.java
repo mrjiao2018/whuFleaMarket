@@ -4,15 +4,17 @@ import edu.whu.iss.whufleamarket.mapper.ProductMapper;
 import edu.whu.iss.whufleamarket.dto.ProductExecution;
 import edu.whu.iss.whufleamarket.service.ProductService;
 import edu.whu.iss.whufleamarket.vo.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
+import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-//    @Autowired
-    private ProductMapper productMapper;
+    @Autowired
+    ProductMapper productMapper;
 
     /**
      * 添加二手商品
@@ -28,5 +30,10 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public ProductExecution addProduct(Product product, InputStream[] inputStreams, String[] fileNames) {
         return null;
+    }
+
+    @Override
+    public List<Product> getAllProducts(Long productCategoryId) {
+        return productMapper.queryAllProducts(productCategoryId);
     }
 }
