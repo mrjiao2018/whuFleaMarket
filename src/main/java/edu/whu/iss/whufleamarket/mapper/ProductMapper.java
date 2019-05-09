@@ -19,4 +19,12 @@ public interface ProductMapper {
      */
     @Select("select * from tb_product where product_category_id = #{productCategoryId}")
     List<Product> queryByCategoryId(Long productCategoryId);
+
+    /**
+     * 获取所有买卖
+     *
+     * @return
+     */
+    @Select("select * from tb_product")
+    List<Product> queryAll();
 }

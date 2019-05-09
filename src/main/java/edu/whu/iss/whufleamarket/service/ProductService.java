@@ -24,4 +24,11 @@ public interface ProductService {
      * @return
      */
     List<Product> getByCategoryId(Long productCategoryId);
+
+    /**
+     * 获取所有买卖
+     *
+     * @return
+     */
+    List<Product> getAllProducts();
 }

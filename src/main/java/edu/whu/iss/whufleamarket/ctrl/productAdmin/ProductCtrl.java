@@ -56,14 +56,16 @@ public class ProductCtrl {
             modelMap.put("success", false);
             modelMap.put("errMsg", "categoryId不能为空");
         }
-        if (categoryId <= 0){
+        try {
+            List<Product> products = null;
+            products = (categoryId == 0)?productService.getAllProducts():productService.getByCategoryId(categoryId);
+            modelMap.put("success", true);
+            modelMap.put("errMsg", "");
+            modelMap.put("products", products);
+        } catch (Exception e){
             modelMap.put("success", false);
-            modelMap.put("errMsg", "categoryId必须大于 0");
+            modelMap.put("errMsg", e.getMessage());
         }
-        List<Product> products = productService.getByCategoryId(categoryId);
-        modelMap.put("success", true);
-        modelMap.put("errMsg", "");
-        modelMap.put("products", products);
         return modelMap;
     }
 }
