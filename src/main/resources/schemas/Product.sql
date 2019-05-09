@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS tb_product(
   owner_id INT(100) NOT NULL,
   create_time DATETIME DEFAULT NULL ,
   last_edit_time DATETIME DEFAULT NULL ,
-  enable_status INT(2) NOT NULL DEFAULT 0 COMMENT '0：禁用，1：允许使用',
   new_degree VARCHAR(32) NOT NULL ,
   PRIMARY KEY (product_id),
   CONSTRAINT fk_product_procate FOREIGN KEY (product_category_id) REFERENCES tb_product_category(product_category_id),

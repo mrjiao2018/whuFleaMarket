@@ -1,18 +1,21 @@
 package edu.whu.iss.whufleamarket.ctrl.productAdmin;
 
 import edu.whu.iss.whufleamarket.service.ProductService;
+import edu.whu.iss.whufleamarket.vo.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/whufleamarket/deal")
+@RequestMapping("/deal")
 public class ProductCtrl {
     @Autowired
     private ProductService productService;
@@ -42,6 +45,25 @@ public class ProductCtrl {
             modelMap.put("errMsg", e.getMessage());
         }
 
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/{categoryId}/all")
+    @ResponseBody
+    private Map<String, Object> getProductsByCategoryId(@PathVariable("categoryId") Long categoryId){
+        Map<String, Object> modelMap = new HashMap<>();
+        if (categoryId == null){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "categoryId不能为空");
+        }
+        if (categoryId <= 0){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "categoryId必须大于 0");
+        }
+        List<Product> products = productService.getByCategoryId(categoryId);
+        modelMap.put("success", true);
+        modelMap.put("errMsg", "");
+        modelMap.put("products", products);
         return modelMap;
     }
 }

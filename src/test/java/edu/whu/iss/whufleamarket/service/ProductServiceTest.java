@@ -19,7 +19,7 @@ public class ProductServiceTest extends WhufleamarketApplicationTests {
 
     @Test
     public void getAllProducts() {
-        List<Product> allProducts = productService.getAllProducts(1l);
-        List<Product> allProducts1 = productService.getAllProducts(2l);
+        List<Product> allProducts = productService.getByCategoryId(1l);
+        List<Product> allProducts1 = productService.getByCategoryId(2l);
     }
 }

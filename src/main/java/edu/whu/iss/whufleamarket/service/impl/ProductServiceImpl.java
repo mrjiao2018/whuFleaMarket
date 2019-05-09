@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProducts(Long productCategoryId) {
-        return productMapper.queryAllProducts(productCategoryId);
+    public List<Product> getByCategoryId(Long productCategoryId) {
+        return productMapper.queryByCategoryId(productCategoryId);
     }
 }

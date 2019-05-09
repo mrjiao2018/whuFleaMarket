@@ -18,5 +18,5 @@ public interface ProductMapper {
      * @return
      */
     @Select("select * from tb_product where product_category_id = #{productCategoryId}")
-    List<Product> queryAllProducts(Long productCategoryId);
+    List<Product> queryByCategoryId(Long productCategoryId);
 }

@@ -23,5 +23,5 @@ public interface ProductService {
      * @param productCategoryId
      * @return
      */
-    List<Product> getAllProducts(Long productCategoryId);
+    List<Product> getByCategoryId(Long productCategoryId);
 }
