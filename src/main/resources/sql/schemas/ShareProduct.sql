@@ -12,6 +12,5 @@ CREATE TABLE IF NOT EXISTS tb_share_product(
   create_time DATETIME DEFAULT NULL ,
   last_edit_time DATETIME DEFAULT NULL ,
   new_degree VARCHAR(32) NOT NULL ,
-  PRIMARY KEY (share_product_id),
-  CONSTRAINT fk_share_product_shapro FOREIGN KEY (product_id) REFERENCES tb_product(product_id)
+  PRIMARY KEY (share_product_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

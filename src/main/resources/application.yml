@@ -32,11 +32,13 @@ spring:
     useGlobalDataSourceStat: true
     ###################创建数据表###########################
     schema:
-      - classpath:sql.schemas/ProductCategory.sql
-      - classpath:sql.schemas/PersonInfo.sql
-      - classpath:sql.schemas/Product.sql
-      - classpath:sql.schemas/ProductImg.sql
-    initialization-mode: always
+      - classpath:sql/schemas/ProductCategory.sql
+      - classpath:sql/schemas/PersonInfo.sql
+      - classpath:sql/schemas/Product.sql
+      - classpath:sql/schemas/ProductImg.sql
+      - classpath:sql/schemas/ShareProduct.sql
+#      - classpath:sql/schemas/Like.sql
+    initialization-mode: never
 
 # SpringMVC 配置
 server:
