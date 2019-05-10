@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class PersonInfoMapperTest extends WhufleamarketApplicationTests {
     @Autowired
-    PersonInfoMapper personInfoMapper;
+    private PersonInfoMapper personInfoMapper;
 
     @Test
     public void insertPersonInfo()
     {
         PersonInfo newUser = new PersonInfo();
-        newUser.setOpenId("cpick");
+        newUser.setOpenId("chris2");
         newUser.setNickName("nickname");
         newUser.setHeadSrc("avatarUrl");
         newUser.setGender(0);
@@ -28,7 +28,7 @@ public class PersonInfoMapperTest extends WhufleamarketApplicationTests {
     public void updatePersonInfo()
     {
         PersonInfo oldUser = new PersonInfo();
-        oldUser.setOpenId("chris");
+        oldUser.setOpenId("chris2");
         oldUser.setName("name2");
         oldUser.setHeadSrc("headSrc2");
         oldUser.setSchool("school2");

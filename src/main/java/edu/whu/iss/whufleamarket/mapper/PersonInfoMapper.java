@@ -8,11 +8,13 @@ import org.apache.ibatis.annotations.Update;
 
 public interface PersonInfoMapper {
     @Options(useGeneratedKeys = true, keyProperty = "userId")
-    @Insert("insert into tb_person_info(open_id, name) values(#{openId}, #{name})")
+    @Insert("insert into tb_person_info(open_id,nickname,head_src," +
+            "gender,country,province,city) " +
+            "values(#{openId}, #{nickname}, #{headSrc}, #{gender}, #{country}, #{province}, #{city})")
     int insertPersonInfo(PersonInfo personInfo);
 
-    @Select("select * from tb_person_info where id=#{id}")
-    PersonInfo queryPersonInfoById(Long id);
+    @Select("select * from tb_person_info where open_id=#{id}")
+    PersonInfo queryPersonInfoById(String id);
 
     @Update("update tb_person_info set name = #{name}, " +
             "head_src = #{headSrc}," +
