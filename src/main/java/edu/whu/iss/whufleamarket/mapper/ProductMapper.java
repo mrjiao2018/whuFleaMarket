@@ -14,14 +14,14 @@ public interface ProductMapper {
     int insertProduct(Product product);
 
     /**
-     * 根据类别获取所有买卖
+     * todo 根据类别获取所有买卖，需要定义一个 resultMap，整合 owner 信息和 images 信息
      * @return
      */
     @Select("select * from tb_product where product_category_id = #{productCategoryId}")
     List<Product> queryByCategoryId(Long productCategoryId);
 
     /**
-     * 获取所有买卖
+     * todo 获取所有买卖，需要定义一个 resultMap，整合 owner 信息和 images 信息
      *
      * @return
      */
