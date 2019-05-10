@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -42,13 +45,26 @@ public class PersonInfoCtrl
 
             newUser.setOpenId(HttpServletRequestUtil.getString(request, "openid"));
             newUser.setNickName(userInfo.getString("nickname"));
-            newUser.setHeadSrc(userInfo.getString("headSrc"));
             newUser.setGender(Integer.parseInt(userInfo.getString("gender")));
             newUser.setCountry(userInfo.getString("country"));
             newUser.setProvince(userInfo.getString("province"));
-            newUser.setProvince(userInfo.getString("city"));
+            newUser.setCity(userInfo.getString("city"));
+            newUser.setHeadSrc("");
 
-            personInfoService.addUser(newUser);
+            CommonsMultipartFile shopImg = null;
+            CommonsMultipartResolver commonsMultipartResolver =
+                    new CommonsMultipartResolver(request.getSession().getServletContext());
+            if(commonsMultipartResolver.isMultipart(request)){
+                MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+                shopImg = (CommonsMultipartFile) multipartHttpServletRequest.getFile("headSrc");
+            }else {
+                modelMap.put("success", false);
+                modelMap.put("errMsg", "上传图片不能为空");
+                return modelMap;
+            }
+
+
+            personInfoService.addUser(newUser,shopImg.getInputStream(),shopImg.getOriginalFilename());
 
             modelMap.put("success", true);
             modelMap.put("errMsg", "");

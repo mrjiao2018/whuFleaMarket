@@ -1,5 +1,6 @@
 package edu.whu.iss.whufleamarket.dto;
 
-public class ProductExecution
+public class PersonInfoExecution
 {
+
 }

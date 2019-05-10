@@ -3,69 +3,74 @@ package edu.whu.iss.whufleamarket.vo;
 import java.util.Date;
 
 public class PurchaseProduct {
-    private String purchaseProductID;          //求购编号
-    private String purchaseProductAddress;    //求购发布地址
-    private String purchaseProductContent;    //求购物品内容
-    private String purchaseProductStatus;     //求购状态
-    private String purchaseProductCategory;  // 求购物品种类
-    private String purchaseProductMode;       //求购交易类型
-    private Date purchaseProductTime;         //求购发布时间
+    private String id;          //求购编号
+    private Integer owner_id;
+    private String address;    //求购发布地址
+    private String content;    //求购物品内容
+    private String status;     //求购状态
+    private String category;  // 求购物品种类
+    private String mode;       //求购交易类型
+    private String time;         //求购发布时间
 
 
     public String getPurchaseProductID() {
-        return purchaseProductID;
+        return id;
     }
 
-    public void setPurchaseProductID(String purchaseProductID) {
-        this.purchaseProductID = purchaseProductID;
+    public void setOwner_id(Integer owner_id){this.owner_id=owner_id;}
+
+    public Integer getOwner_id(){return owner_id;}
+
+    public void setPurchaseProductID(String id) {
+        this.id = id;
     }
 
     public String getPurchaseProductAddress() {
-        return purchaseProductAddress;
+        return address;
     }
 
-    public void setPurchaseProductAddress(String purchaseProductAddress) {
-        this.purchaseProductAddress = purchaseProductAddress;
+    public void setPurchaseProductAddress(String address) {
+        this.address = address;
     }
 
     public String getPurchaseProductContent() {
-        return purchaseProductContent;
+        return content;
     }
 
-    public void setPurchaseProductContent(String purchaseProductContent) {
-        this.purchaseProductContent = purchaseProductContent;
+    public void setPurchaseProductContent(String content) {
+        this.content = content;
     }
 
     public String getPurchaseProductStatus() {
-        return purchaseProductStatus;
+        return status;
     }
 
-    public void setPurchaseProductStatus(String purchaseProductStatus) {
-        this.purchaseProductStatus = purchaseProductStatus;
+    public void setPurchaseProductStatus(String status) {
+        this.status = status;
     }
 
     public String getPurchaseProductCategory() {
-        return purchaseProductCategory;
+        return category;
     }
 
-    public void setPurchaseProductCategory(String purchaseProductCategory) {
-        this.purchaseProductCategory = purchaseProductCategory;
+    public void setPurchaseProductCategory(String category) {
+        this.category = category;
     }
 
-    public Date getPurchaseProductTime() {
-        return purchaseProductTime;
+    public String getPurchaseProductTime() {
+        return time;
     }
 
-    public void setPurchaseProductTime(Date purchaseProductTime) {
-        this.purchaseProductTime = purchaseProductTime;
+    public void setPurchaseProductTime(String time) {
+        this.time = time;
     }
 
     public String getPurchaseProductMode() {
-        return purchaseProductMode;
+        return mode;
     }
 
-    public void setPurchaseProductMode(String purchaseProductMode) {
-        this.purchaseProductMode = purchaseProductMode;
+    public void setPurchaseProductMode(String mode) {
+        this.mode = mode;
     }
 
 
