@@ -1,5 +1,6 @@
 package edu.whu.iss.whufleamarket.service.impl;
 
+import edu.whu.iss.whufleamarket.mapper.ProductImgMapper;
 import edu.whu.iss.whufleamarket.mapper.ProductMapper;
 import edu.whu.iss.whufleamarket.dto.ProductExecution;
 import edu.whu.iss.whufleamarket.service.ProductService;
@@ -15,6 +16,9 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductMapper productMapper;
+
+    @Autowired
+    ProductImgMapper productImgMapper;
 
     /**
      * 添加二手商品
@@ -34,11 +38,15 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getByCategoryId(Long productCategoryId) {
-        return productMapper.queryByCategoryId(productCategoryId);
-    }
-
-    @Override
-    public List<Product> getAllProducts() {
-        return productMapper.queryAll();
+        // todo, 将 owner 属性、productImgs 属性绑定到 Product 上面,
+        List<Product> products = (productCategoryId == 0) ? productMapper.queryAll() :
+                productMapper.queryByCategoryId(productCategoryId);
+//        if(products != null){
+//            for(Product product : products){
+//                List<String> productImgs = productImgMapper.queryImgAddrByProductId(product.getProductId());
+//                product.setProductImgs(productImgs);
+//            }
+//        }
+        return products;
     }
 }

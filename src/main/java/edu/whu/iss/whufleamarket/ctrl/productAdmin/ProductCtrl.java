@@ -57,8 +57,7 @@ public class ProductCtrl {
             modelMap.put("errMsg", "categoryId不能为空");
         }
         try {
-            List<Product> products = null;
-            products = (categoryId == 0)?productService.getAllProducts():productService.getByCategoryId(categoryId);
+            List<Product> products = productService.getByCategoryId(categoryId);
             modelMap.put("success", true);
             modelMap.put("errMsg", "");
             modelMap.put("products", products);
