@@ -15,7 +15,7 @@ public interface PersonInfoMapper
     int insertPersonInfo(PersonInfo personInfo);
 
     @Select("select * from tb_person_info where open_id=#{id}")
-    PersonInfo queryPersonInfoById(String id);
+    PersonInfo queryPersonInfoById(String openId);
 
     @Update("update tb_person_info set name = #{name}, " +
             "head_src = #{headSrc}," +

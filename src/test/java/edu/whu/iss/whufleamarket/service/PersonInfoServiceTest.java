@@ -21,7 +21,7 @@ public class PersonInfoServiceTest extends WhufleamarketApplicationTests {
         newUser.setProvince("province");
         newUser.setCity("city");
 
-        personInfoService.addUser(newUser);
+        personInfoService.addUser(newUser, );
     }
 
     @Test

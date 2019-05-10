@@ -36,4 +36,11 @@ public class PersonInfoMapperTest extends WhufleamarketApplicationTests {
         oldUser.setPhone("phone2");
         int i = personInfoMapper.updatePersonInfo(oldUser);
     }
+
+    @Test
+    public void queryPersonInfoById()
+    {
+        PersonInfo user = personInfoMapper.queryPersonInfoById("chris2");
+        System.out.println(user.getAddress());
+    }
 }
