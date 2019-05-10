@@ -5,9 +5,8 @@ import org.apache.ibatis.annotations.*;
 
 public interface PurchaseProductMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into tb_purchase_product(owner_id, address, time,content, " +
-            "status, mode, category) values(#{owner_id},#{address}, #{time})" +
-            "values(#{content},values(#status},values(#{mode},values(#{category}")
+    @Insert("insert into tb_purchase_product(owner_id, address, time,content, status, mode, category) " +
+            "values(#{owner_id}, #{address}, #{time}, #{content}, #{status}, #{mode}, #{category})")
     int insertPurchaseProduct(PurchaseProduct purchaseProduct);
 
     @Select("select * from tb_purchase_product")
