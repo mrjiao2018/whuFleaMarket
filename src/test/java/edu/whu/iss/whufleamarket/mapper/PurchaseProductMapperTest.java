@@ -16,7 +16,7 @@ public class PurchaseProductMapperTest extends WhufleamarketApplicationTests {
         PurchaseProduct purchaseInfo = new PurchaseProduct();
         purchaseInfo.setOwner_id(1);
         purchaseInfo.setPurchaseProductAddress("信息学部食堂");
-        purchaseInfo.setPurchaseProductTime(now());
+        purchaseInfo.setPurchaseProductTime(now().toString());
         purchaseInfo.setPurchaseProductContent("先到先得");
         purchaseInfo.setPurchaseProductStatus("1");
         purchaseInfo.setPurchaseProductMode("1");

@@ -10,7 +10,7 @@ public class PurchaseProduct {
     private String status;     //求购状态
     private String category;  // 求购物品种类
     private String mode;       //求购交易类型
-    private Date time;         //求购发布时间
+    private String time;         //求购发布时间
 
 
     public String getPurchaseProductID() {
@@ -57,11 +57,11 @@ public class PurchaseProduct {
         this.category = category;
     }
 
-    public Date getPurchaseProductTime() {
+    public String getPurchaseProductTime() {
         return time;
     }
 
-    public void setPurchaseProductTime(Date time) {
+    public void setPurchaseProductTime(String time) {
         this.time = time;
     }
 
