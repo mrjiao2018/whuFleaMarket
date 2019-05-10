@@ -22,7 +22,7 @@ public interface ProductMapper {
 
     /**
      * todo 获取所有买卖，需要定义一个 resultMap，整合 owner 信息和 images 信息
-     *
+     *      *
      * @return
      */
     @Select("select * from tb_product")

@@ -16,6 +16,14 @@ public class PersonInfoServiceImpl implements PersonInfoService
     PersonInfoMapper personInfoMapper;
     HttpServletRequest request;
 
+    /**
+     * 插入用户信息，储存图片
+     *
+     * @param personInfo 当前用户
+     * @param shopImginputStream 图片输入流
+     * @param fileName 上传图片名
+     * @return
+     */
     @Override
     public int addUser(PersonInfo personInfo, InputStream shopImginputStream, String fileName) {
         int effectedNum = personInfoMapper.insertPersonInfo(personInfo);
@@ -50,9 +58,20 @@ public class PersonInfoServiceImpl implements PersonInfoService
         return effectedNum;
     }
 
+    /**
+     * 更新用户信息
+     *
+     * @param personInfo 会话中储存的用户
+     * @return
+     */
     public int updateUser(PersonInfo personInfo){
         return personInfoMapper.updatePersonInfo(personInfo);
     }
 
+    /**
+     *
+     * @param id 用户id
+     * @return 用户
+     */
     public PersonInfo queryPersonInfoById(String id) {return personInfoMapper.queryPersonInfoById(id);}
 }
