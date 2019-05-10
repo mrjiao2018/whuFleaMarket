@@ -43,12 +43,12 @@ public class PurchaseProductCtrl
         {
             PurchaseProduct purchaseProduct = new PurchaseProduct();
             purchaseProduct.setOwner_id(HttpServletRequestUtil.getInt(request,"owner_id"));
-            purchaseProduct.setPurchaseProductStatus(HttpServletRequestUtil.getString(request,"status"));
+            purchaseProduct.setPurchaseProductStatus(HttpServletRequestUtil.getInt(request,"status"));
             purchaseProduct.setPurchaseProductAddress(HttpServletRequestUtil.getString(request,"address"));
-            purchaseProduct.setPurchaseProductCategory(HttpServletRequestUtil.getString(request,"category"));
+            purchaseProduct.setPurchaseProductCategory(HttpServletRequestUtil.getInt(request,"category"));
             purchaseProduct.setPurchaseProductContent(HttpServletRequestUtil.getString(request,"content"));
             purchaseProduct.setPurchaseProductTime(HttpServletRequestUtil.getString(request,"time"));
-            purchaseProduct.setPurchaseProductMode(HttpServletRequestUtil.getString(request,"mode"));
+            purchaseProduct.setPurchaseProductMode(HttpServletRequestUtil.getInt(request,"mode"));
 
             purchaseProductService.addPurchase(purchaseProduct);
 
