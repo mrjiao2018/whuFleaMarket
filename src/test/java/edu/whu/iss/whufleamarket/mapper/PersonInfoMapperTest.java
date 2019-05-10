@@ -21,8 +21,7 @@ public class PersonInfoMapperTest extends WhufleamarketApplicationTests {
         newUser.setCountry("country");
         newUser.setProvince("province");
         newUser.setCity("city");
-        int i = personInfoMapper.insertPersonInfo(newUser);
-        System.out.println(i);
+        personInfoMapper.insertPersonInfo(newUser);
     }
 
     @Test

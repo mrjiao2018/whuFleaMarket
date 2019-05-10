@@ -38,11 +38,11 @@ public class PersonInfo {
         this.name = name;
     }
 
-    public String getProfileImg() {
+    public String getHeadSrc() {
         return headSrc;
     }
 
-    public void setProfileImg(String headSrc) {
+    public void setHeadSrc(String headSrc) {
         this.headSrc = headSrc;
     }
 
