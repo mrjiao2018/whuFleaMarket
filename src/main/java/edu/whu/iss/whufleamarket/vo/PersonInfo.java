@@ -4,54 +4,30 @@ import java.util.Date;
 
 public class PersonInfo {
     private String openId;
-    private Long userId;
+    private Long id;
     private String name;
     private String nickname;
     private String university;
     private String school;          //学院
-    private String country;
-    private String province;
-    private String city;
     private String address;
     private String phone;
     private String headSrc;      //用户头像地址
     private String email;
-    private int gender;
+    private Integer gender;
     private Integer enableStatus;   //用户状态：启用和禁用
     private Integer useType;        //用户种类：0为用户，1为超级管理员
+    private String country;
+    private String province;
+    private String city;
     private Date createTime;
     private Date lastEditTime;
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     public Long getUserId() {
-        return userId;
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -62,12 +38,12 @@ public class PersonInfo {
         this.name = name;
     }
 
-    public String getHeadSrc() {
+    public String getProfileImg() {
         return headSrc;
     }
 
-    public void setHeadSrc(String profileImg) {
-        this.headSrc = profileImg;
+    public void setProfileImg(String headSrc) {
+        this.headSrc = headSrc;
     }
 
     public String getEmail() {
@@ -78,11 +54,11 @@ public class PersonInfo {
         this.email = email;
     }
 
-    public int getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
@@ -164,5 +140,29 @@ public class PersonInfo {
 
     public void setUniversity(String university) {
         this.university = university;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
