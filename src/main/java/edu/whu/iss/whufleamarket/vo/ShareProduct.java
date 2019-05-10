@@ -6,7 +6,7 @@ import java.util.List;
 public class ShareProduct{
     private Integer likes;//点赞数
     private Integer status;//共享物品的状态 0：在架上 1：租用中
-    private Integer location;//共享物品的位置：0: 全部 1：文理学部 2：信息学部 3：工学部 4：医学部
+    private Integer location;//共享物品的位置：1：文理学部 2：信息学部 3：工学部 4：医学部
     private Long shareProductId;
     private String shareProductName;
     private String shareProductDesc;
