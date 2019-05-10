@@ -6,7 +6,8 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-public interface PersonInfoMapper {
+public interface PersonInfoMapper
+{
     @Options(useGeneratedKeys = true, keyProperty = "userId")
     @Insert("insert into tb_person_info(open_id,nickname,head_src," +
             "gender,country,province,city) " +

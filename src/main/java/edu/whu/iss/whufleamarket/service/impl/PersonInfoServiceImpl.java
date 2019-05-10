@@ -21,4 +21,6 @@ public class PersonInfoServiceImpl implements PersonInfoService
     public int updateUser(PersonInfo personInfo){
         return personInfoMapper.updatePersonInfo(personInfo);
     }
+
+    public PersonInfo queryPersonInfoById(String id){return personInfoMapper.queryPersonInfoById(id);}
 }

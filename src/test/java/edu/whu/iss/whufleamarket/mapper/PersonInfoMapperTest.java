@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class PersonInfoMapperTest extends WhufleamarketApplicationTests {
     @Autowired
-    private PersonInfoMapper personInfoMapper;
+    PersonInfoMapper personInfoMapper;
 
     @Test
     public void insertPersonInfo()
