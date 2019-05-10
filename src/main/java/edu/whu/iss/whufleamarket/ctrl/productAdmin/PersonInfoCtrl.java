@@ -65,19 +65,20 @@ public class PersonInfoCtrl
 
     @RequestMapping(value = "/information", method = RequestMethod.POST)
     @ResponseBody
-    private Map<String, Object> update(HttpServletRequest request){
+    private Map<String, Object> updateUser(HttpServletRequest request){
         // 在 modelMap 中定义各个字段和对象，
         // @ResponseBody 会自动将 modelMap 转为 json 字符串返回给前端
         Map<String, Object> modelMap = new HashMap<>();
         try
         {
             PersonInfo oldUser = (PersonInfo)request.getSession().getAttribute("currentUser");
-
             oldUser.setName(HttpServletRequestUtil.getString(request, "name"));
             oldUser.setHeadSrc(HttpServletRequestUtil.getString(request,"headSrc"));
             oldUser.setSchool(HttpServletRequestUtil.getString(request, "school"));
             oldUser.setAddress(HttpServletRequestUtil.getString(request, "Address"));
             oldUser.setPhone(HttpServletRequestUtil.getString(request, "phone"));
+
+            request.setAttribute("currentUser", oldUser);
 
             personInfoService.updateUser(oldUser);
 
