@@ -7,64 +7,65 @@ import java.util.List;
  * 二手商品类
  */
 public class Product {
-    private Long productId;
-    private String productName;
-    private String productDesc;
-    private String productAddr;
-    private List<String> productImgs;
-    private ProductCategory productCategory;
-    private String newDegree;   //商品新旧程度
+    private Long id;
+    private String title;       //商品标题
+    private String description;
+    private String address;
+    private ProductCategory category;
     private String price;
     private PersonInfo owner;
-    private Date createTime;
-    private Date lastEditTime;
+    private Date time;          //创建时间
+    private List<String> images;
+    private Integer status;     //商品状态，0：上架、1：已被订购
+    private Integer mode;       //交易模式，1：代理点、2：自由发布
+    private String newDegree;   //商品新旧程度
 
     public Long getProductId() {
-        return productId;
+        return id;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProductId(Long id) {
+        this.id = id;
     }
 
     public String getProductName() {
-        return productName;
+        return title;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProductName(String title) {
+        this.title = title;
     }
 
     public String getProductDesc() {
-        return productDesc;
+        return description;
     }
 
-    public void setProductDesc(String productDesc) {
-        this.productDesc = productDesc;
+    public void setProductDesc(String description) {
+        this.description = description;
     }
 
     public String getProductAddr() {
-        return productAddr;
+        return address;
     }
 
     public void setProductAddr(String productAddr) {
-        this.productAddr = productAddr;
+        this.address = productAddr;
     }
 
     public List<String> getProductImgs() {
-        return productImgs;
+        return images;
     }
 
     public void setProductImgs(List<String> productImgs) {
-        this.productImgs = productImgs;
+        this.images = productImgs;
     }
 
     public ProductCategory getProductCategory() {
-        return productCategory;
+        return category;
     }
 
-    public void setProductCategory(ProductCategory productCategory) {
-        this.productCategory = productCategory;
+    public void setProductCategory(ProductCategory category) {
+        this.category = category;
     }
 
     public String getPrice() {
@@ -84,19 +85,11 @@ public class Product {
     }
 
     public Date getCreateTime() {
-        return createTime;
+        return time;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getLastEditTime() {
-        return lastEditTime;
-    }
-
-    public void setLastEditTime(Date lastEditTime) {
-        this.lastEditTime = lastEditTime;
+    public void setCreateTime(Date time) {
+        this.time = time;
     }
 
     public String getNewDegree() {
@@ -105,5 +98,19 @@ public class Product {
 
     public void setNewDegree(String newDegree) {
         this.newDegree = newDegree;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public void setMode(Integer mode){this.mode = mode;}
+
+    public Integer getMode() {
+        return mode;
     }
 }

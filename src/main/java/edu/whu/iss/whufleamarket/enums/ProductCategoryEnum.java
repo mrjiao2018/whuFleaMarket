@@ -1,6 +1,7 @@
 package edu.whu.iss.whufleamarket.enums;
 
 public enum ProductCategoryEnum {
+    ALL(0, "所有种类"),
     HOME_APPLIANCES(1, "家电"),
     PLANT(2, "植物"),
     FOOD(3, "食品"),
