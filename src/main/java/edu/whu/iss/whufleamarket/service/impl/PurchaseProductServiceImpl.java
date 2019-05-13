@@ -20,8 +20,15 @@ public class PurchaseProductServiceImpl implements PurchaseProductService {
         return purchaseProductMapper.insertPurchaseProduct(purchaseProduct);
     }
 
+    @Override
     public List<PurchaseProduct> queryPurchaseProductByCategory(Integer category){
         List<PurchaseProduct> purchaseProducts = purchaseProductMapper.queryPurchaseProductByCategory(category);
+        return purchaseProducts;
+    }
+
+    @Override
+    public List<PurchaseProduct> searchPurchaseProductByContent(String content){
+        List<PurchaseProduct> purchaseProducts = purchaseProductMapper.searchPurchase(content);
         return purchaseProducts;
     }
 

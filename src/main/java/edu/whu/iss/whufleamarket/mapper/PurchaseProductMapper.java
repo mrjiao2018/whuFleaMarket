@@ -18,6 +18,9 @@ public interface PurchaseProductMapper {
     @Select("select * from tb_purchase_product where category=#{category}")
     List<PurchaseProduct> queryPurchaseProductByCategory(Integer category);
 
+    @Select({"Select * from tb_purchase_product where content like CONCAT('%',#{input},'%')"})
+    List<PurchaseProduct> searchPurchase(@Param("input")String input);
+
     /**
      * 返回用户求购信息
      * @param personInfo 会话中存储的当前用户

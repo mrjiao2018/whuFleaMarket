@@ -7,8 +7,10 @@ import edu.whu.iss.whufleamarket.utils.HttpServletRequestUtil;
 import edu.whu.iss.whufleamarket.utils.JsonUtil;
 import edu.whu.iss.whufleamarket.vo.PersonInfo;
 import edu.whu.iss.whufleamarket.vo.PurchaseProduct;
+import edu.whu.iss.whufleamarket.vo.Share;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -63,6 +65,49 @@ public class PurchaseProductCtrl
             modelMap.put("errMsg", e.getMessage());
         }
 
+        return modelMap;
+    }
+
+    /**
+     * 获取所有求购信息
+     */
+    @RequestMapping(value = "/{category}/all")
+    @ResponseBody
+    private Map<String, Object> getPurchaseProduct(@PathVariable("category") Integer category){
+        Map<String, Object> modelMap = new HashMap<>();
+        if (category == null){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "categoryId不能为空");
+        }
+        try {
+            List<PurchaseProduct> purchaseProducts = purchaseProductService.queryPurchaseProductByCategory(category);
+            modelMap.put("success", true);
+            modelMap.put("errMsg", "");
+            modelMap.put("purchaseProduct", purchaseProducts);
+        } catch (Exception e){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", e.getMessage());
+        }
+        return modelMap;
+    }
+
+    /**
+     *搜索求购信息
+     */
+    @RequestMapping(value = "/search")
+    @ResponseBody
+    private Map<String, Object> getPurchaseByInput(HttpServletRequest request){
+        Map<String, Object> modelMap = new HashMap<>();
+        try {
+            String input = HttpServletRequestUtil.getString(request, "input");
+            List<PurchaseProduct> purchaseProducts = purchaseProductService.searchPurchaseProductByContent(input);
+            modelMap.put("success", true);
+            modelMap.put("errMsg", "");
+            modelMap.put("purchaseProduct", purchaseProducts);
+        } catch (Exception e){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", e.getMessage());
+        }
         return modelMap;
     }
 

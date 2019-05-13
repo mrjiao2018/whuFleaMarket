@@ -9,4 +9,5 @@ public interface PurchaseProductService {
     int addPurchase(PurchaseProduct purchaseProduct);
     List<PurchaseProduct> queryPurchaseProductByCategory(Integer category);
     List<PurchaseProduct> queryPurchaseProductByUserId(PersonInfo personInfo);
+    List<PurchaseProduct> searchPurchaseProductByContent(String content);
 }
