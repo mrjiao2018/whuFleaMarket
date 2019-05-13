@@ -12,7 +12,15 @@ public class PurchaseProduct {
     private Integer category;  // 求购物品种类
     private Integer mode;       //求购交易类型
     private String time;         //求购发布时间
+    private String price;
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price){
+        this.price = price;
+    }
 
     public Long getOwnerID() {
         return ownerID;

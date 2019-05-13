@@ -53,6 +53,7 @@ public class PurchaseProductCtrl
             purchaseProduct.setContent(HttpServletRequestUtil.getString(request,"content"));
             purchaseProduct.setTime(HttpServletRequestUtil.getString(request,"time"));
             purchaseProduct.setMode(HttpServletRequestUtil.getInt(request,"mode"));
+            purchaseProduct.setPrice(HttpServletRequestUtil.getString(request,"price"));
 
             purchaseProductService.addPurchase(purchaseProduct);
 

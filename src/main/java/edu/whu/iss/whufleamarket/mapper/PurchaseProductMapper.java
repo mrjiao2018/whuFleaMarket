@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface PurchaseProductMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into tb_purchase_product(owner_id, address, time,content, status, mode, category) " +
-            "values(#{ownerID}, #{address}, #{time}, #{content}, #{status}, #{mode}, #{category})")
+    @Insert("insert into tb_purchase_product(owner_id, address, time,content, status, mode, category, price) " +
+            "values(#{ownerID}, #{address}, #{time}, #{content}, #{status}, #{mode}, #{category}, #{price)")
     int insertPurchaseProduct(PurchaseProduct purchaseProduct);
 
     @Results({
