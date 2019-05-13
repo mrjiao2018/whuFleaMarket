@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
 import static org.assertj.core.util.DateUtil.now;
@@ -18,16 +20,22 @@ public class PurchaseProductMapperTest extends WhufleamarketApplicationTests {
     @Test
     public void insertPurchaseProduct() {
 //        PurchaseProduct purchaseInfo = new PurchaseProduct();
-//        purchaseInfo.setOwner_id(1);
-//        purchaseInfo.setPurchaseProductAddress("信息学部食堂");
+//        purchaseInfo.setOwnerID(1);
+//        purchaseInfo.setPurchaseProductAddress( "二食堂");
 //        purchaseInfo.setPurchaseProductTime(now().toString());
-//        purchaseInfo.setPurchaseProductContent("先到先得");
+//        purchaseInfo.setPurchaseProductContent("食品");
 //        purchaseInfo.setPurchaseProductStatus(1);
 //        purchaseInfo.setPurchaseProductMode(1);
 //        purchaseInfo.setPurchaseProductCategory(1);
 //        purchaseProductMapper.insertPurchaseProduct(purchaseInfo);
 
+
+            List<PurchaseProduct> list1 = purchaseProductMapper.searchPurchase("a");
+            List<PurchaseProduct> list2 = purchaseProductMapper.searchPurchase("手机");
+
+
         List<PurchaseProduct> list = purchaseProductMapper.queryPurchaseProductByCategory(1);
+        List<PurchaseProduct> list3 = purchaseProductMapper.queryPurchaseProductByCategory(1);
 
     }
 

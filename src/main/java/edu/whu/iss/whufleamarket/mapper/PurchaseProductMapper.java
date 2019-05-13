@@ -9,15 +9,20 @@ import java.util.List;
 public interface PurchaseProductMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     @Insert("insert into tb_purchase_product(owner_id, address, time,content, status, mode, category) " +
-            "values(#{owner_id}, #{address}, #{time}, #{content}, #{status}, #{mode}, #{category})")
+            "values(#{ownerID}, #{address}, #{time}, #{content}, #{status}, #{mode}, #{category})")
     int insertPurchaseProduct(PurchaseProduct purchaseProduct);
 
-    @Select("select * from tb_purchase_product")
-    PurchaseProduct queryAll();
-
+    @Results({
+            @Result(property = "owner", column = "owner_id",
+                    one = @One(select = "edu.whu.iss.whufleamarket.mapper.PersonInfoMapper.queryPersonInfoByUserId")),
+    })
     @Select("select * from tb_purchase_product where category=#{category}")
     List<PurchaseProduct> queryPurchaseProductByCategory(Integer category);
 
+    @Results({
+            @Result(property = "owner", column = "owner_id",
+                    one = @One(select = "edu.whu.iss.whufleamarket.mapper.PersonInfoMapper.queryPersonInfoByUserId")),
+    })
     @Select({"Select * from tb_purchase_product where content like CONCAT('%',#{input},'%')"})
     List<PurchaseProduct> searchPurchase(@Param("input")String input);
 
