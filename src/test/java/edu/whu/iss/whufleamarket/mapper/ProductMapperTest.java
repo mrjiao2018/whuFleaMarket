@@ -15,7 +15,6 @@ public class ProductMapperTest extends WhufleamarketApplicationTests {
 
     @Test
     public void queryAllProducts() {
-//        List<Product> products = productMapper.queryByCategoryId(1l);
         List<Product> products = productMapper.queryAll();
     }
 
@@ -23,5 +22,11 @@ public class ProductMapperTest extends WhufleamarketApplicationTests {
     public void queryByCategoryId() {
         List<Product> products1 = productMapper.queryByCategoryId(1l);
         List<Product> products2 = productMapper.queryByCategoryId(200l);
+    }
+
+    @Test
+    public void searchByTitle() {
+        List<Product> products1 = productMapper.queryByTitle("est");
+        List<Product> products2 = productMapper.queryByTitle("测试");
     }
 }

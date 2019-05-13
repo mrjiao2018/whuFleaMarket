@@ -18,6 +18,7 @@ public interface ProductMapper {
      * @return
      */
     @Results({
+            @Result(property = "id", column = "id"),
             @Result(property = "category", column = "category_id",
                     one = @One(select = "edu.whu.iss.whufleamarket.mapper.ProductCategoryMapper.queryProductCategoryById")),
             @Result(property = "owner", column = "owner_id",
@@ -34,6 +35,7 @@ public interface ProductMapper {
      * @return
      */
     @Results({
+            @Result(property = "id", column = "id"),
             @Result(property = "category", column = "category_id",
                     one = @One(select = "edu.whu.iss.whufleamarket.mapper.ProductCategoryMapper.queryProductCategoryById")),
             @Result(property = "owner", column = "owner_id",
@@ -43,4 +45,21 @@ public interface ProductMapper {
     })
     @Select("select * from tb_product")
     List<Product> queryAll();
+
+    /**
+     * 搜索商品
+     * @param productTitle
+     * @return
+     */
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "category", column = "category_id",
+                    one = @One(select = "edu.whu.iss.whufleamarket.mapper.ProductCategoryMapper.queryProductCategoryById")),
+            @Result(property = "owner", column = "owner_id",
+                    one = @One(select = "edu.whu.iss.whufleamarket.mapper.PersonInfoMapper.queryPersonInfoByUserId")),
+            @Result(property = "images",column = "id",
+                    many = @Many(select = "edu.whu.iss.whufleamarket.mapper.ProductImgMapper.queryImgAddrByProductId"))
+    })
+    @Select("select * from tb_product where title like CONCAT('%',#{productTitle},'%')")
+    List<Product> queryByTitle(String productTitle);
 }

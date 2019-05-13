@@ -1,6 +1,7 @@
 package edu.whu.iss.whufleamarket.ctrl.productAdmin;
 
 import edu.whu.iss.whufleamarket.service.ProductService;
+import edu.whu.iss.whufleamarket.utils.HttpServletRequestUtil;
 import edu.whu.iss.whufleamarket.vo.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,6 +65,33 @@ public class ProductCtrl {
         } catch (Exception e){
             modelMap.put("success", false);
             modelMap.put("errMsg", e.getMessage());
+        }
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/search")
+    @ResponseBody
+    private Map<String, Object> getProductsByTitle(HttpServletRequest request){
+        Map<String, Object> modelMap = new HashMap<>();
+        String title = HttpServletRequestUtil.getString(request, "input");
+        if(title == null){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "获取 input 内容失败");
+        }
+        else if(title.equals("")){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "title 内容不能为空");
+        }
+        else {
+            try {
+                List<Product> productList = productService.getByTitle(title);
+                modelMap.put("success", true);
+                modelMap.put("errMsg", "");
+                modelMap.put("products", productList);
+            }catch (Exception e){
+                modelMap.put("success", false);
+                modelMap.put("errMsg", e.getMessage());
+            }
         }
         return modelMap;
     }
