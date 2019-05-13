@@ -13,10 +13,10 @@ public class ProductCategory {
 
     public ProductCategory(){}
 
-//    public ProductCategory(ProductCategoryEnum productCategoryEnum){
-//        productCategoryId = productCategoryEnum.getType();
-//        productCategoryName = productCategoryEnum.getTypeInfo();
-//    }
+    public ProductCategory(ProductCategoryEnum productCategoryEnum){
+        productCategoryId = productCategoryEnum.getType();
+        productCategoryName = productCategoryEnum.getTypeInfo();
+    }
 
     public void setProductCategoryId(Integer productCategoryId){
         this.productCategoryId = productCategoryId;
