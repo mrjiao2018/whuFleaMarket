@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS tb_purchase_product(
   `address` varchar(100) NOT NULL,
   `time` varchar(100) NOT NULL,
   `content` varchar(100) NOT NULL,
+  `price` varchar(100) NOT NULL,
   `status` INT(2) NOT NULL DEFAULT 0 COMMENT '0：进行中，1：已完成',
   `mode` INT(2) NOT NULL DEFAULT 0 COMMENT '1：代理点，1：自由发布',
   `category` int(12) NOT NULL,

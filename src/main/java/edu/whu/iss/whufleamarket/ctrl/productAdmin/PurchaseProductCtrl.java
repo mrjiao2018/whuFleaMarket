@@ -36,7 +36,7 @@ public class PurchaseProductCtrl
      * @param request 网络请求封装 request
      * @return modelMap 返回内容封装，所有 ctrl 层的方法都必须返回 modelMap ！
      */
-    @RequestMapping(value = "/publish", method = RequestMethod.POST)
+    @RequestMapping(value = "/publish")
     @ResponseBody
     private Map<String, Object> addPurchase(HttpServletRequest request){
         // 在 modelMap 中定义各个字段和对象，
@@ -44,14 +44,15 @@ public class PurchaseProductCtrl
         Map<String, Object> modelMap = new HashMap<>();
         try
         {
+//            PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
             PurchaseProduct purchaseProduct = new PurchaseProduct();
-            purchaseProduct.setOwnerID(HttpServletRequestUtil.getInt(request,"ownerID"));
-            purchaseProduct.setPurchaseProductStatus(HttpServletRequestUtil.getInt(request,"status"));
-            purchaseProduct.setPurchaseProductAddress(HttpServletRequestUtil.getString(request,"address"));
-            purchaseProduct.setPurchaseProductCategory(HttpServletRequestUtil.getInt(request,"category"));
-            purchaseProduct.setPurchaseProductContent(HttpServletRequestUtil.getString(request,"content"));
-            purchaseProduct.setPurchaseProductTime(HttpServletRequestUtil.getString(request,"time"));
-            purchaseProduct.setPurchaseProductMode(HttpServletRequestUtil.getInt(request,"mode"));
+            purchaseProduct.setOwnerID(1L);
+            purchaseProduct.setStatus(HttpServletRequestUtil.getInt(request,"status"));
+            purchaseProduct.setAddress(HttpServletRequestUtil.getString(request,"address"));
+            purchaseProduct.setCategory(HttpServletRequestUtil.getInt(request,"category"));
+            purchaseProduct.setContent(HttpServletRequestUtil.getString(request,"content"));
+            purchaseProduct.setTime(HttpServletRequestUtil.getString(request,"time"));
+            purchaseProduct.setMode(HttpServletRequestUtil.getInt(request,"mode"));
 
             purchaseProductService.addPurchase(purchaseProduct);
 

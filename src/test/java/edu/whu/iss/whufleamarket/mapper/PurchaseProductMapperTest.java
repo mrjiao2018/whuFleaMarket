@@ -45,7 +45,7 @@ public class PurchaseProductMapperTest extends WhufleamarketApplicationTests {
         PersonInfo test = new PersonInfo();
         test.setUserId(Integer.toUnsignedLong(2));
         List<PurchaseProduct> list = purchaseProductMapper.queryPurchaseProductByUserId(test);
-        System.out.println(list.get(0).getPurchaseProductAddress());
+        System.out.println(list.get(0).getAddress());
     }
 
 }

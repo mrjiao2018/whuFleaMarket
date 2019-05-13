@@ -5,7 +5,7 @@ import java.util.Date;
 public class PurchaseProduct {
     private String id;          //求购编号
     private PersonInfo owner;
-    private Integer ownerID;
+    private Long ownerID;
     private String address;    //求购发布地址
     private String content;    //求购物品内容
     private Integer status;     //求购状态
@@ -14,15 +14,15 @@ public class PurchaseProduct {
     private String time;         //求购发布时间
 
 
-    public Integer getOwnerID() {
+    public Long getOwnerID() {
         return ownerID;
     }
 
-    public void setOwnerID(Integer ownerID) {
+    public void setOwnerID(Long ownerID) {
         this.ownerID = ownerID;
     }
 
-    public String getPurchaseProductID() {
+    public String getId() {
         return id;
     }
 
@@ -34,55 +34,55 @@ public class PurchaseProduct {
         this.owner = owner;
     }
 
-    public void setPurchaseProductID(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getPurchaseProductAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setPurchaseProductAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public String getPurchaseProductContent() {
+    public String getContent() {
         return content;
     }
 
-    public void setPurchaseProductContent(String content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
-    public Integer getPurchaseProductStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setPurchaseProductStatus(Integer status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public Integer getPurchaseProductCategory() {
+    public Integer getCategory() {
         return category;
     }
 
-    public void setPurchaseProductCategory(Integer category) {
+    public void setCategory(Integer category) {
         this.category = category;
     }
 
-    public String getPurchaseProductTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setPurchaseProductTime(String time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
-    public Integer getPurchaseProductMode() {
+    public Integer getMode() {
         return mode;
     }
 
-    public void setPurchaseProductMode(Integer mode) {
+    public void setMode(Integer mode) {
         this.mode = mode;
     }
 

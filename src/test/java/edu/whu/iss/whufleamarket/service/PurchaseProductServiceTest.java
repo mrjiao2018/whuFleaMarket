@@ -17,13 +17,13 @@ public class PurchaseProductServiceTest extends WhufleamarketApplicationTests {
     @Test
     public void addPurchase(){
         PurchaseProduct purchaseProduct = new PurchaseProduct();
-        purchaseProduct.setOwnerID(2);
-        purchaseProduct.setPurchaseProductMode(1);
-        purchaseProduct.setPurchaseProductTime(now().toString());
-        purchaseProduct.setPurchaseProductContent("777");
-        purchaseProduct.setPurchaseProductCategory(1);
-        purchaseProduct.setPurchaseProductAddress("666");
-        purchaseProduct.setPurchaseProductStatus(1);
+        purchaseProduct.setOwnerID(2L);
+        purchaseProduct.setMode(1);
+        purchaseProduct.setTime(now().toString());
+        purchaseProduct.setContent("777");
+        purchaseProduct.setCategory(1);
+        purchaseProduct.setAddress("666");
+        purchaseProduct.setStatus(1);
         purchaseProductService.addPurchase(purchaseProduct);
     }
 
@@ -33,6 +33,6 @@ public class PurchaseProductServiceTest extends WhufleamarketApplicationTests {
         PersonInfo test = new PersonInfo();
         test.setUserId(Integer.toUnsignedLong(2));
         List<PurchaseProduct> purchaseProducts = purchaseProductService.queryPurchaseProductByUserId(test);
-        System.out.println(purchaseProducts.get(0).getPurchaseProductAddress());
+        System.out.println(purchaseProducts.get(0).getAddress());
     }
 }
