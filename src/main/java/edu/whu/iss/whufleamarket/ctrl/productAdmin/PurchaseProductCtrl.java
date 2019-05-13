@@ -7,8 +7,10 @@ import edu.whu.iss.whufleamarket.utils.HttpServletRequestUtil;
 import edu.whu.iss.whufleamarket.utils.JsonUtil;
 import edu.whu.iss.whufleamarket.vo.PersonInfo;
 import edu.whu.iss.whufleamarket.vo.PurchaseProduct;
+import edu.whu.iss.whufleamarket.vo.Share;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +21,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -62,6 +65,31 @@ public class PurchaseProductCtrl
             modelMap.put("errMsg", e.getMessage());
         }
 
+        return modelMap;
+    }
+
+    /**
+     **获取求购信息
+     */
+    @RequestMapping(value = "/{category}/all")
+    @ResponseBody
+    private Map<String, Object> showPurchase(@PathVariable("categoryId") Integer category){
+        // 在 modelMap 中定义各个字段和对象，
+        // @ResponseBody 会自动将 modelMap 转为 json 字符串返回给前端
+        Map<String, Object> modelMap = new HashMap<>();
+        if (category == null){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "category不能为空");
+        }
+        try {
+            List<PurchaseProduct> purchaseProducts = purchaseProductService.queryPurchaseProductByCategory(category);
+            modelMap.put("success", true);
+            modelMap.put("errMsg", "");
+            modelMap.put("purchaseProducts", purchaseProducts);
+        } catch (Exception e){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", e.getMessage());
+        }
         return modelMap;
     }
 
