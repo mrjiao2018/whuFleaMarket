@@ -7,10 +7,8 @@ import edu.whu.iss.whufleamarket.utils.HttpServletRequestUtil;
 import edu.whu.iss.whufleamarket.utils.JsonUtil;
 import edu.whu.iss.whufleamarket.vo.PersonInfo;
 import edu.whu.iss.whufleamarket.vo.PurchaseProduct;
-import edu.whu.iss.whufleamarket.vo.Share;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -68,29 +66,35 @@ public class PurchaseProductCtrl
         return modelMap;
     }
 
-    /**
-     **获取求购信息
-     */
-    @RequestMapping(value = "/{category}/all")
+    @RequestMapping(value = "/userpurchase", method = RequestMethod.POST)
     @ResponseBody
-    private Map<String, Object> showPurchase(@PathVariable("categoryId") Integer category){
+    private Map<String, Object> getPurchaseByUserId(HttpServletRequest request){
         // 在 modelMap 中定义各个字段和对象，
         // @ResponseBody 会自动将 modelMap 转为 json 字符串返回给前端
         Map<String, Object> modelMap = new HashMap<>();
-        if (category == null){
-            modelMap.put("success", false);
-            modelMap.put("errMsg", "category不能为空");
-        }
-        try {
-            List<PurchaseProduct> purchaseProducts = purchaseProductService.queryPurchaseProductByCategory(category);
+        try
+        {
+            PersonInfo currentUser =(PersonInfo) request.getSession().getAttribute("currentUser");
+            if(currentUser == null)
+            {
+                modelMap.put("success", false);
+                modelMap.put("errMsg", "");
+                return modelMap;
+            }
+
+            List<PurchaseProduct> purchaseProducts =
+                    purchaseProductService.queryPurchaseProductByUserId(currentUser);
             modelMap.put("success", true);
             modelMap.put("errMsg", "");
-            modelMap.put("purchaseProducts", purchaseProducts);
-        } catch (Exception e){
+            modelMap.put("purchase", purchaseProducts);
+        }
+        catch (Exception e)
+        {
+            // 如果发生异常，则说明 service 操作失败，封装 modelMap 并返回结果
             modelMap.put("success", false);
             modelMap.put("errMsg", e.getMessage());
         }
+
         return modelMap;
     }
-
 }

@@ -3,6 +3,7 @@ package edu.whu.iss.whufleamarket.service.impl;
 import edu.whu.iss.whufleamarket.mapper.PersonInfoMapper;
 import edu.whu.iss.whufleamarket.mapper.PurchaseProductMapper;
 import edu.whu.iss.whufleamarket.service.PurchaseProductService;
+import edu.whu.iss.whufleamarket.vo.PersonInfo;
 import edu.whu.iss.whufleamarket.vo.PurchaseProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,13 @@ public class PurchaseProductServiceImpl implements PurchaseProductService {
 
     public List<PurchaseProduct> queryPurchaseProductByCategory(Integer category){
         List<PurchaseProduct> purchaseProducts = purchaseProductMapper.queryPurchaseProductByCategory(category);
+        return purchaseProducts;
+    }
+
+    @Override
+    public List<PurchaseProduct> queryPurchaseProductByUserId(PersonInfo personInfo) {
+        List<PurchaseProduct> purchaseProducts = purchaseProductMapper.
+                queryPurchaseProductByUserId(personInfo);
         return purchaseProducts;
     }
 }

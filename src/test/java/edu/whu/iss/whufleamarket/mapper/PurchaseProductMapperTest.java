@@ -1,8 +1,10 @@
 package edu.whu.iss.whufleamarket.mapper;
 
 import edu.whu.iss.whufleamarket.WhufleamarketApplicationTests;
+import edu.whu.iss.whufleamarket.vo.PersonInfo;
 import edu.whu.iss.whufleamarket.vo.PurchaseProduct;
 import org.junit.Test;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -28,4 +30,14 @@ public class PurchaseProductMapperTest extends WhufleamarketApplicationTests {
         List<PurchaseProduct> list = purchaseProductMapper.queryPurchaseProductByCategory(1);
 
     }
+
+    @Test
+    public void queryByUserId()
+    {
+        PersonInfo test = new PersonInfo();
+        test.setUserId(Integer.toUnsignedLong(2));
+        List<PurchaseProduct> list = purchaseProductMapper.queryPurchaseProductByUserId(test);
+        System.out.println(list.get(0).getPurchaseProductAddress());
+    }
+
 }
