@@ -22,7 +22,7 @@ public class PersonInfo {
     private Date createTime;
     private Date lastEditTime;
 
-    public Long getUserId() {
+    public Long getId() {
         return id;
     }
 

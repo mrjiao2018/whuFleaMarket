@@ -17,9 +17,6 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductMapper productMapper;
 
-    @Autowired
-    ProductImgMapper productImgMapper;
-
     /**
      * 添加二手商品
      * 方法为事务的，其包含如下几个步骤，只要有一个步骤失败事务就回滚
@@ -38,15 +35,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getByCategoryId(Long productCategoryId) {
-        // todo, 将 owner 属性、productImgs 属性绑定到 Product 上面,
+        // 不需要对productCategoryId是否符合指定范围进行判断，如果不在 [0, 12] 范围内，在操作数据库时直接查不到数据
         List<Product> products = (productCategoryId == 0) ? productMapper.queryAll() :
                 productMapper.queryByCategoryId(productCategoryId);
-//        if(products != null){
-//            for(Product product : products){
-//                List<String> productImgs = productImgMapper.queryImgAddrByProductId(product.getProductId());
-//                product.setProductImgs(productImgs);
-//            }
-//        }
         return products;
     }
 }

@@ -28,51 +28,43 @@ public class Product {
         this.title = title;
     }
 
-    public Long getProductId() {
+    public Long getId() {
         return id;
     }
 
-    public void setProductId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getProductName() {
-        return title;
-    }
-
-    public void setProductName(String title) {
-        this.title = title;
-    }
-
-    public String getProductDesc() {
+    public String getDescription() {
         return description;
     }
 
-    public void setProductDesc(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getProductAddr() {
+    public String getAddress() {
         return address;
     }
 
-    public void setProductAddr(String productAddr) {
+    public void setAddress(String productAddr) {
         this.address = productAddr;
     }
 
-    public List<String> getProductImgs() {
+    public List<String> getImages() {
         return images;
     }
 
-    public void setProductImgs(List<String> productImgs) {
+    public void setImages(List<String> productImgs) {
         this.images = productImgs;
     }
 
-    public ProductCategory getProductCategory() {
+    public ProductCategory getCategory() {
         return category;
     }
 
-    public void setProductCategory(ProductCategory category) {
+    public void setCategory(ProductCategory category) {
         this.category = category;
     }
 
@@ -92,11 +84,11 @@ public class Product {
         this.owner = owner;
     }
 
-    public Date getCreateTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setCreateTime(Date time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 
