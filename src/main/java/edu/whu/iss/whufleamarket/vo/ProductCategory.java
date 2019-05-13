@@ -10,12 +10,20 @@ import java.util.Date;
 public class ProductCategory {
     private Integer productCategoryId;
     private String productCategoryName;
-    private Date createTime;
-    private Date lastEditTIme;
 
-    public ProductCategory(ProductCategoryEnum productCategoryEnum){
-        productCategoryId = productCategoryEnum.getType();
-        productCategoryName = productCategoryEnum.getTypeInfo();
+    public ProductCategory(){}
+
+//    public ProductCategory(ProductCategoryEnum productCategoryEnum){
+//        productCategoryId = productCategoryEnum.getType();
+//        productCategoryName = productCategoryEnum.getTypeInfo();
+//    }
+
+    public void setProductCategoryId(Integer productCategoryId){
+        this.productCategoryId = productCategoryId;
+    }
+
+    public void setProductCategoryName(String productCategoryName){
+        this.productCategoryName = productCategoryName;
     }
 
     public Integer getProductCategoryId() {
@@ -24,21 +32,5 @@ public class ProductCategory {
 
     public String getProductCategoryName() {
         return productCategoryName;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getLastEditTIme() {
-        return lastEditTIme;
-    }
-
-    public void setLastEditTIme(Date lastEditTIme) {
-        this.lastEditTIme = lastEditTIme;
     }
 }

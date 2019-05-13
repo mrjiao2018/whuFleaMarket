@@ -38,9 +38,7 @@ public class PersonInfoMapperTest extends WhufleamarketApplicationTests {
     }
 
     @Test
-    public void queryPersonInfoById()
-    {
-        PersonInfo user = personInfoMapper.queryPersonInfoById("chris2");
-        System.out.println(user.getAddress());
+    public void queryPersonInfoById(){
+//        PersonInfo personInfo = personInfoMapper.queryPersonInfoById(1l);
     }
 }

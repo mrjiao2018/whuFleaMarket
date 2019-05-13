@@ -15,7 +15,7 @@ public class ProductMapperTest extends WhufleamarketApplicationTests {
 
     @Test
     public void queryAllProducts() {
-        List<Product> products = productMapper.queryByCategoryId(1l);
+//        List<Product> products = productMapper.queryByCategoryId(1l);
         List<Product> products1 = productMapper.queryAll();
     }
 }
