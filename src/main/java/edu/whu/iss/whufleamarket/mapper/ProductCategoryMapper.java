@@ -6,6 +6,6 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
 public interface ProductCategoryMapper {
-    @Select("select * from tb_product_category where product_category_id = 1")
-    ProductCategory queryProductCategoryById();
+    @Select("select * from tb_product_category where product_category_id = #{categoryId}")
+    ProductCategory queryProductCategoryById(Integer categoryId);
 }

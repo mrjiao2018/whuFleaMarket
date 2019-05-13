@@ -13,6 +13,6 @@ public class productCategoryMapperTest extends WhufleamarketApplicationTests{
 
     @Test
     public void testQueryProductCategoryById(){
-        ProductCategory productCategory = productCategoryMapper.queryProductCategoryById();
+        ProductCategory productCategory = productCategoryMapper.queryProductCategoryById(1);
     }
 }

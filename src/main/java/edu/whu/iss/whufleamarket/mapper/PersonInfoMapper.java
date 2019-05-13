@@ -23,12 +23,21 @@ public interface PersonInfoMapper
     int insertPersonInfo(PersonInfo personInfo);
 
     /**
+     * todo 将方法名改为 queryPersonInfoByOpenId
      * 根据id获取用户信息
      * @param openId 用户openId
      * @return 对应的用户
      */
     @Select("select * from tb_person_info where open_id=#{id}")
     PersonInfo queryPersonInfoById(String openId);
+
+    /**
+     * 根据id获取用户信息
+     * @param id 用户Id
+     * @return 对应的用户
+     */
+    @Select("select * from tb_person_info where id=#{id}")
+    PersonInfo queryPersonInfoByUserId(Long id);
 
     /**
      * 更新当前用户
