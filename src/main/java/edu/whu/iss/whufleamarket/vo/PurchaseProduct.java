@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class PurchaseProduct {
     private String id;          //求购编号
-    private Integer owner_id;
+    private PersonInfo owner;
+    private Integer ownerID;
     private String address;    //求购发布地址
     private String content;    //求购物品内容
     private Integer status;     //求购状态
@@ -13,13 +14,25 @@ public class PurchaseProduct {
     private String time;         //求购发布时间
 
 
+    public Integer getOwnerID() {
+        return ownerID;
+    }
+
+    public void setOwnerID(Integer ownerID) {
+        this.ownerID = ownerID;
+    }
+
     public String getPurchaseProductID() {
         return id;
     }
 
-    public void setOwner_id(Integer owner_id){this.owner_id=owner_id;}
+    public PersonInfo getOwner() {
+        return owner;
+    }
 
-    public Integer getOwner_id(){return owner_id;}
+    public void setOwner(PersonInfo owner) {
+        this.owner = owner;
+    }
 
     public void setPurchaseProductID(String id) {
         this.id = id;

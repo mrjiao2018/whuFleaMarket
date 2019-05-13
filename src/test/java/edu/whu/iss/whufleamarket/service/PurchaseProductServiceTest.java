@@ -17,7 +17,7 @@ public class PurchaseProductServiceTest extends WhufleamarketApplicationTests {
     @Test
     public void addPurchase(){
         PurchaseProduct purchaseProduct = new PurchaseProduct();
-        purchaseProduct.setOwner_id(2);
+        purchaseProduct.setOwnerID(2);
         purchaseProduct.setPurchaseProductMode(1);
         purchaseProduct.setPurchaseProductTime(now().toString());
         purchaseProduct.setPurchaseProductContent("777");

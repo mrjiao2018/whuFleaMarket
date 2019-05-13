@@ -45,7 +45,7 @@ public class PurchaseProductCtrl
         try
         {
             PurchaseProduct purchaseProduct = new PurchaseProduct();
-            purchaseProduct.setOwner_id(HttpServletRequestUtil.getInt(request,"owner_id"));
+            purchaseProduct.setOwnerID(HttpServletRequestUtil.getInt(request,"ownerID"));
             purchaseProduct.setPurchaseProductStatus(HttpServletRequestUtil.getInt(request,"status"));
             purchaseProduct.setPurchaseProductAddress(HttpServletRequestUtil.getString(request,"address"));
             purchaseProduct.setPurchaseProductCategory(HttpServletRequestUtil.getInt(request,"category"));
