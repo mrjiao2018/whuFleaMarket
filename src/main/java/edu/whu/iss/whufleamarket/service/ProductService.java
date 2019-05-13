@@ -25,4 +25,10 @@ public interface ProductService {
      */
     List<Product> getByCategoryId(Long productCategoryId);
 
+    /**
+     * 通过商品名称进行模糊查询
+     * @param title
+     * @return
+     */
+    List<Product> getByTitle(String title);
 }

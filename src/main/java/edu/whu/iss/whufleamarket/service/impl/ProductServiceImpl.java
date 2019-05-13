@@ -40,4 +40,9 @@ public class ProductServiceImpl implements ProductService {
                 productMapper.queryByCategoryId(productCategoryId);
         return products;
     }
+
+    @Override
+    public List<Product> getByTitle(String title) {
+        return productMapper.queryByTitle(title);
+    }
 }
