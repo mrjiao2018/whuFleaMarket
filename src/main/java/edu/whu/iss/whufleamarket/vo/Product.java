@@ -20,6 +20,14 @@ public class Product {
     private Integer mode;       //交易模式，1：代理点、2：自由发布
     private String newDegree;   //商品新旧程度
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Long getProductId() {
         return id;
     }

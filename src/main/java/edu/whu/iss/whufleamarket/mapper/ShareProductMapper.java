@@ -15,5 +15,4 @@ public interface ShareProductMapper {
     @Results({@Result(property = "shareProductId",column = "share_product_id"),@Result(property = "productImgs",column = "share_product_id",many = @Many(select = "edu.whu.iss.whufleamarket.mapper.ShareProductImgMapper.queryImgAddrByProductId"))})
     @Select({"Select * from tb_share_product where share_product_name  like CONCAT('%',#{input},'%')"})
     List<ShareProduct> fuzzyQueryByName(@Param("input")String input);
-
 }

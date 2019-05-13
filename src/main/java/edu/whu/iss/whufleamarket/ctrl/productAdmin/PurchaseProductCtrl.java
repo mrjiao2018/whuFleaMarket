@@ -19,6 +19,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -65,4 +66,35 @@ public class PurchaseProductCtrl
         return modelMap;
     }
 
+    @RequestMapping(value = "/userpurchase", method = RequestMethod.POST)
+    @ResponseBody
+    private Map<String, Object> getPurchaseByUserId(HttpServletRequest request){
+        // 在 modelMap 中定义各个字段和对象，
+        // @ResponseBody 会自动将 modelMap 转为 json 字符串返回给前端
+        Map<String, Object> modelMap = new HashMap<>();
+        try
+        {
+            PersonInfo currentUser =(PersonInfo) request.getSession().getAttribute("currentUser");
+            if(currentUser == null)
+            {
+                modelMap.put("success", false);
+                modelMap.put("errMsg", "");
+                return modelMap;
+            }
+
+            List<PurchaseProduct> purchaseProducts =
+                    purchaseProductService.queryPurchaseProductByUserId(currentUser);
+            modelMap.put("success", true);
+            modelMap.put("errMsg", "");
+            modelMap.put("purchase", purchaseProducts);
+        }
+        catch (Exception e)
+        {
+            // 如果发生异常，则说明 service 操作失败，封装 modelMap 并返回结果
+            modelMap.put("success", false);
+            modelMap.put("errMsg", e.getMessage());
+        }
+
+        return modelMap;
+    }
 }

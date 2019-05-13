@@ -14,6 +14,8 @@ public class ProductImgMapperTest extends WhufleamarketApplicationTests {
 
     @Test
     public void testQueryImgAddrByProductId(){
+
         List<String> strings = productImgMapper.queryImgAddrByProductId(1l);
+        System.out.println(strings.get(0));
     }
 }

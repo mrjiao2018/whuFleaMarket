@@ -18,6 +18,14 @@ public interface PurchaseProductMapper {
     @Select("select * from tb_purchase_product where category=#{category}")
     List<PurchaseProduct> queryPurchaseProductByCategory(Integer category);
 
+    /**
+     * 返回用户求购信息
+     * @param personInfo 会话中存储的当前用户
+     * @return 用户的求购信息
+     */
+    @Select("select * from tb_purchase_product where owner_id=#{userId}")
+    List<PurchaseProduct> queryPurchaseProductByUserId(PersonInfo personInfo);
+
     @Select("select * from tb_purchase_product where id=#{id}")
     PurchaseProduct queryPurchaseInfoById(String id);
 

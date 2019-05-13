@@ -41,7 +41,7 @@ public class PersonInfoCtrl
             PersonInfo newUser = new PersonInfo();
 
             JSONObject userInfo = (JSONObject)JsonUtil.getRequestJsonObject(request)
-                    .get("userinfo");
+                    .get("userInfo");
 
             newUser.setOpenId(HttpServletRequestUtil.getString(request, "openid"));
             newUser.setNickName(userInfo.getString("nickname"));
