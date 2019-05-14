@@ -15,6 +15,9 @@ public interface PurchaseProductMapper {
     @Results({
             @Result(property = "owner", column = "owner_id",
                     one = @One(select = "edu.whu.iss.whufleamarket.mapper.PersonInfoMapper.queryPersonInfoByUserId")),
+            @Result(property = "id",column = "id"),
+            @Result(property = "purchaseProductImgs",column = "id",
+                    many = @Many(select = "edu.whu.iss.whufleamarket.mapper.PurchaseProductMapper.queryImgAddrByPurchaseProductId"))
     })
     @Select("select * from tb_purchase_product where category=#{category}")
     List<PurchaseProduct> queryPurchaseProductByCategory(Integer category);
@@ -22,6 +25,9 @@ public interface PurchaseProductMapper {
     @Results({
             @Result(property = "owner", column = "owner_id",
                     one = @One(select = "edu.whu.iss.whufleamarket.mapper.PersonInfoMapper.queryPersonInfoByUserId")),
+            @Result(property = "id",column = "id"),
+            @Result(property = "purchaseProductImgs",column = "id",
+                    many = @Many(select = "edu.whu.iss.whufleamarket.mapper.PurchaseProductMapper.queryImgAddrByPurchaseProductId"))
     })
     @Select({"Select * from tb_purchase_product where content like CONCAT('%',#{input},'%')"})
     List<PurchaseProduct> searchPurchase(@Param("input")String input);
@@ -33,6 +39,9 @@ public interface PurchaseProductMapper {
      */
     @Select("select * from tb_purchase_product where owner_id=#{userId}")
     List<PurchaseProduct> queryPurchaseProductByUserId(PersonInfo personInfo);
+
+    @Select("select img_addr from tb_purchase_product_img where pu_product_id = #{id}")
+    List<String> queryImgAddrByPurchaseProductId(String id);
 
     @Select("select * from tb_purchase_product where id=#{id}")
     PurchaseProduct queryPurchaseInfoById(String id);

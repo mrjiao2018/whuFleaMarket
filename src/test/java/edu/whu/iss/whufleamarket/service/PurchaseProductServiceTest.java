@@ -24,6 +24,7 @@ public class PurchaseProductServiceTest extends WhufleamarketApplicationTests {
         purchaseProduct.setCategory(1);
         purchaseProduct.setAddress("666");
         purchaseProduct.setStatus(1);
+        purchaseProduct.setPrice("100");
         purchaseProductService.addPurchase(purchaseProduct);
     }
 

@@ -30,8 +30,8 @@ public class PurchaseProductMapperTest extends WhufleamarketApplicationTests {
 //        purchaseProductMapper.insertPurchaseProduct(purchaseInfo);
 
 
-            List<PurchaseProduct> list1 = purchaseProductMapper.searchPurchase("a");
-            List<PurchaseProduct> list2 = purchaseProductMapper.searchPurchase("手机");
+//            List<PurchaseProduct> list1 = purchaseProductMapper.searchPurchase("a");
+//            List<PurchaseProduct> list2 = purchaseProductMapper.searchPurchase("手机");
 
 
         List<PurchaseProduct> list = purchaseProductMapper.queryPurchaseProductByCategory(1);

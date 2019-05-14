@@ -1,6 +1,7 @@
 package edu.whu.iss.whufleamarket.vo;
 
 import java.util.Date;
+import java.util.List;
 
 public class PurchaseProduct {
     private String id;          //求购编号
@@ -13,6 +14,15 @@ public class PurchaseProduct {
     private Integer mode;       //求购交易类型
     private String time;         //求购发布时间
     private String price;
+    private List<String> purchaseProductImgs;
+
+    public List<String> getPurchaseProductImgs() {
+        return purchaseProductImgs;
+    }
+
+    public void setPurchaseProductImgs(List<String> purchaseProductImgs) {
+        this.purchaseProductImgs = purchaseProductImgs;
+    }
 
     public String getPrice() {
         return price;
